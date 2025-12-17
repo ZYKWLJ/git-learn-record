@@ -317,6 +317,7 @@ git clone https://github.com/ZYKWLJ/git-learn-record.git
 ```
 ![克隆指定路径下的仓库，默认clone全部分支](image-42.png)
 
+### 2.分支显示问题
 克隆完全后，查看本地所有的分支，发现远程分支是完整的，但是本地分支仅仅自动创建默认主分支main
 
 ![克隆完全后，查看本地所有的分支，发现远程分支是完整的，但是本地分支仅仅自动创建默认主分支main](image-43.png)
@@ -324,3 +325,31 @@ git clone https://github.com/ZYKWLJ/git-learn-record.git
 此时，我们仅仅只需要使用切换命令即可自动创建出对对应远程分支的本地分支！
 
 ![切换分支后，自动创建出了该分支！](image-44.png)
+
+### 3.拉取仓库
+如果我们发现远端仓库有更新了，自己可以通过以下命令拉取最新的内容：
+```
+git pull origin main
+```
+
+![拉取的新内容git pull origin main](image-46.png)
+
+### 4.恢复到拉取之前的操作
+
+那如果我不想再工作界面显示拉取的新内容，我可以通过以下命令恢复到拉取之前的操作：
+```
+git reset --hard HEAD@{1}
+//这是切换到最新的操作，HEAD@{1}表示最新的一次操作，HEAD@{2}表示倒数第二次操作，以此类推。
+
+//当然，也可以通过哈希值切换：
+git reflog  //显示所有的操作记录，包括切换分支、提交、回滚等，我们从中获取哈希值
+git reset --hard 哈希值
+```
+- 哈希值切换是本质
+
+![也可以通过哈希值切换工作台内容](image-47.png)
+
+- 恢复到拉取之前的操作git reset --hard HEAD@{1}
+常用于最近的两个版本切换，方便，无需哈希值
+
+![恢复到拉取之前的操作git reset --hard HEAD@{1}](image-48.png)
