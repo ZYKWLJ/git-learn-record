@@ -245,3 +245,61 @@ git branch -D b1 删除分支，并不做任何检查，强制删除
 ---
 
 ![git log --graph直观显示各个分支的情况](image-31.png)
+
+# 五、远程仓库
+### 1.基础命令
+```
+git remote add origin https://github.com/ZYKWLJ/git-learn-record.git 
+
+// 添加远程仓库(中央仓库)，所有与远程仓库有关的命令是git remote，add是子命令，而origin是远程仓库的名称，https://github.com/ZYKWLJ/git-learn-record.git是远程仓库的地址
+
+git branch -M main // 把当前分支重命名为main(如果本身就是main则无需重命名)，因为一般默认命名为master分支，这是奴隶的意思，可能有种族歧视的含义，所以修改
+
+git push -u origin main //git push提交到中央仓库的核心命令，-u：是 --set-upstream 的缩写，作用是把当前分支和远程分支关联起来，以后可以直接使用git push提交到远程分支，origin：要推送的远程仓库别名（对应之前 git remote add 关联的仓库）；main：要推送的本地分支名，同时远程会自动创建同名的 main 分支（如果不存在）。
+```
+
+### 2.添加远程仓库&&分支改名
+
+![分支改名](image-32.png)
+
+### 3.推送到远程仓库并与当前分支建立连接
+![推送到远程仓库并与当前分支建立连接](image-33.png)
+
+提交了后，远程仓库就有了内容了！
+![提交了后，远程仓库就有了内容了](image-34.png)
+
+查看远程的分支，只有main分支，说明，我们从本地提交了分支后，远程仓库会自动创建分支并与之匹配
+
+![查看远程的分支，只有main分支，说明，我们从本地提交了分支后，远程仓库会自动创建分支并与之匹配](image-36.png)
+
+### 4.推送全部分支到远程仓库
+目前，远程仓库也仅仅只有main分支，feature/test分支还在本地，没有推送到远程仓库。那如何提交全部本地分支到远程仓库呢?
+使用命令：
+```
+git push origin --all
+```
+![git pull origin --all 提交所有的本地分支到远程仓库](image-35.png)
+
+提交后，github侧有如下分支：
+![git pull origin --all 提交所有的本地分支到远程仓库后，所有分支显示](image-37.png)
+
+### 5.查看分支的3个命令
+```
+git branch //查看本地分支
+git branch -v   //查看本地分支的详细信息
+git branch -vv   //查看本地分支和远程分支的信息
+git branch -avv //查看本地分支和远程分支的详细信息
+```
+
+#### 1.git branch //查看本地分支
+![git branch //查看本地分支](image-38.png)
+
+#### 2.git branch -v   //查看本地分支的详细信息
+![2.git branch -v   //查看本地分支的详细信息](image-39.png)
+
+#### 3.git branch -vv   //查看本地分支和远程分支的信息
+![alt text](image-40.png)
+
+
+#### 4.git branch -avv //查看本地分支和远程分支的详细信息
+![git branch -avv //查看本地分支和远程分支的详细信息](image-41.png)
