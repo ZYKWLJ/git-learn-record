@@ -105,6 +105,8 @@ git add .//加入所有文件
 ##### 软撤回
 ```
 git reset --soft HEAD~1
+//如果是第一次提交，那么没有上一次提交内容，对应撤销命令如下：
+git reset --soft HEAD^
 ```
 
 `HEAD~1` 表示`「当前提交的上一个版本」`，也就是`撤回最近 1 次提交`；如果要撤回最近 2 次，就写 HEAD~2。
@@ -119,12 +121,15 @@ git reset --soft HEAD~1
 ```
 # 彻底撤回最近1次提交，且清空所有修改
 git reset --hard HEAD~1
+//如果是第一次提交，那么没有上一次提交内容，对应撤销命令如下：
+git reset --hard HEAD^
 ```
 
 ![提交了这次的修改](image-18.png)
 
 ![撤销这次的commit](image-17.png)
 ![可以看到，我们撤销commit后，文件也删除了！](image-21.png)
+
 
 
 那么，我们撤销错了，可以取消吗？当然可以，如下：
