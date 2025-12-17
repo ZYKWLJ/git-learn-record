@@ -353,3 +353,4 @@ git reset --hard 哈希值
 常用于最近的两个版本切换，方便，无需哈希值
 
 ![恢复到拉取之前的操作git reset --hard HEAD@{1}](image-48.png)
+
