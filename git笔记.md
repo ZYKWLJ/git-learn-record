@@ -354,3 +354,14 @@ git reset --hard 哈希值
 
 ![恢复到拉取之前的操作git reset --hard HEAD@{1}](image-48.png)
 
+
+# 七、其他有用的命令
+```
+git stash save "stash_info"
+```
+这几乎是`最有用`的命令之一！
+
+git stash 是 Git 中临时保存工作区 / 暂存区未提交修改的命令 —— 
+当你正在开发一个功能，但需要临时切换分支（比如修复紧急 Bug），又不想提交不完整的代码时，用它可以`把当前的修改「暂存」到一个临时区域，之后再恢复回来。`
+
+![git stash save "stash_info" 几乎是最常用的信息！](image-49.png)
